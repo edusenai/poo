@@ -101,24 +101,26 @@ public class RevisaoConta {
 		this.limiteCreditoConta = limiteCreditoConta;
 	}
 	
-	public void depositar() {
-		
+	//Sem regra de negócio para simular operações bacárias.
+	
+	public void depositar(double valor) {
+		System.out.println("A conta " + getCodConta() + " recebeu depoósito do valor de R$" + valor);
 	}
 	
-	public void sacar() {
-		
+	public void sacar(double valor) {
+		System.out.println("A conta " + getCodConta() + " sacou o valor de R$" + valor);
 	}
 	
-	public void ajustarLimite() {
-		
+	public void ajustarLimite(double valor) {
+		System.out.println("A conta " + getCodConta() + " teve seu limite ajustado para R$" + valor);
 	}
 	
-	public void transferir() {
-		
+	public void transferir(int codFavorecido, int agenciaFavorecido, double valor) {
+		System.out.println("A conta " + getCodConta() + " transferiu o valor de R$" + valor + " para a conta " + codFavorecido + " e agência: " + agenciaFavorecido);
 	}
 	
-	public void pagarBoleto() {
-		
+	public void pagarBoleto(double valor) {
+		System.out.println("A conta " + getCodConta() + " foi debitada o valor de R$" + valor);
 	}
 	
 }

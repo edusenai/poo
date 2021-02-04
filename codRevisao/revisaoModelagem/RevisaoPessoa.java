@@ -2,10 +2,10 @@ package revisao;
 
 public class RevisaoPessoa {
 	
-	int codPessoa, idadePessoa;
-	double pesoPessoa, alturaPessoa, cpfPessoa, rgPessoa;
-	String nomePessoa, tipoSanguineoPessoa, alimentacaoPessoa, sexoPessoa;
-	boolean andando, correr, falar, alimentar, dormir;
+	private int codPessoa, idadePessoa;
+	private double pesoPessoa, alturaPessoa, cpfPessoa, rgPessoa;
+	private String nomePessoa, tipoSanguineoPessoa, alimentacaoPessoa, sexoPessoa;
+	private boolean andando, correr, falar, alimentar, dormir;
 	
 	public RevisaoPessoa(int codPessoa, String nomePessoa, double cpfPessoa, double pesoPessoa, double alturaPessoa, int idadePessoa, 
 			double rgPessoa, String tipoSanguineoPessoa, String alimentacaoPessoa, String sexoPessoa) {
@@ -100,6 +100,8 @@ public class RevisaoPessoa {
 	public void setSexoPessoa(String sexoPessoa) {
 		this.sexoPessoa = sexoPessoa;
 	}
+	
+	//Exemplificar código, sem regra de negócio coesa com o comportamento de uma pessoa
 	
 	public boolean pessoaAndar() {
 		if (andando == false) {

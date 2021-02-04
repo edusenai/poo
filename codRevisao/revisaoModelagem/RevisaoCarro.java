@@ -104,6 +104,8 @@ public class RevisaoCarro {
 		this.emplacado = emplacado;
 	}
 	
+	//Sem regras de negócio para simular o comportamento de um carro. Apenas para exemplificar codificação
+	
 	public void ligarDesligar() {
 		if (isLigado == true) {
 			System.out.println("O carro foi desligado.");

@@ -101,6 +101,8 @@ public class RevisaoAnimal {
 		this.sexoAnimal = sexoAnimal;
 	}
 	
+	//Sem regras de negócio avançadas, apenas para exemplificação de codificação.
+	
 	public boolean animalAndar() {
 		if (andando == false) {
 			System.out.println("O animal " + getNomeAnimal() + " está andando.");

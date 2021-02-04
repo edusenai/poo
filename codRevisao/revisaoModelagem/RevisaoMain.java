@@ -10,6 +10,10 @@ public class RevisaoMain {
 		
 		RevisaoCarro carro = new RevisaoCarro(1, 5, 4, "Popular", "FIAT", "Branco", "Gasolina", 20, 100, true);
 		
+		RevisaoConta conta = new RevisaoConta(123, 999, "João", "09876543212", "7654345", "R. João da Silva, n 115, São Paulo", "011999999999", "Corrente", 10000, 5000);
+		
+		RevisaoProduto produto = new RevisaoProduto(1, "Bola Quadrada", "Brinquedo", "3 meses", "Colorida", 10, 30, 1, 1.2, 20.0);
+		
 		System.out.println("Meu animal: " + animal.getCodAnimal() + " " + animal.getNomeAnimal());
 		animal.setNomeAnimal("Gato");
 		System.out.println("Meu animal: " + animal.getCodAnimal() + " " + animal.getNomeAnimal());
@@ -57,6 +61,30 @@ public class RevisaoMain {
 		carro.acelerar();
 		carro.frear();
 		carro.frear();
+		
+		System.out.println();
+		System.out.println();
+		
+		System.out.println("Conta: " + conta.getCodConta() + " " + conta.getAgenciaConta() + " " + conta.getNomeConta());
+		conta.setNomeConta("Maria");
+		System.out.println("Conta: " + conta.getCodConta() + " " + conta.getAgenciaConta() + " " + conta.getNomeConta());
+		conta.ajustarLimite(8000);
+		conta.depositar(7888);
+		conta.sacar(122);
+		conta.transferir(999, 111, 7000);
+		conta.pagarBoleto(899);
+		
+		System.out.println();
+		System.out.println();
+		
+		System.out.println("Produto: " + produto.getNomeProduto());
+		produto.setNomeProduto("Bola Redonda");
+		System.out.println("Produto: " + produto.getNomeProduto());
+		produto.vender();
+		produto.vender();
+		produto.estoque();
+		produto.entregar();
+		produto.suporte();
 		
 	}
 
