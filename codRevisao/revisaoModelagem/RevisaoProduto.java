@@ -101,6 +101,8 @@ public class RevisaoProduto {
 		this.tamanhoProduto = tamanhoProduto;
 	}
 	
+	//Sem regra de negócio, apenas para exemplificar a codificação
+	
 	public void vender() {
 		if (vender == false) {
 			System.out.println("O produto " + getNomeProduto() + " está sendo vendido.");

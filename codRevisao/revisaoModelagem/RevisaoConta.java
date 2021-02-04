@@ -101,7 +101,7 @@ public class RevisaoConta {
 		this.limiteCreditoConta = limiteCreditoConta;
 	}
 	
-	//Sem regra de negócio para simular operações bacárias.
+	//Sem regra de negócio para simular operações bancárias.
 	
 	public void depositar(double valor) {
 		System.out.println("A conta " + getCodConta() + " recebeu depoósito do valor de R$" + valor);
