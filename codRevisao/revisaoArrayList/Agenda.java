@@ -25,9 +25,7 @@ public class Agenda {
 	
 	//atualizar
 	public void atualizar() {
-		for (Contato contato : Contatos) {
-			contato.getCodigo();
-		}
+		//Método atualizar fica redundante neste caso. Se quero atualizar um contato, basta utilizar Setters da classe Contato que o objeto é atualizado. 
 	}
 	
 	//listar

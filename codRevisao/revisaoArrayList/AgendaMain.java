@@ -22,8 +22,12 @@ public class AgendaMain {
 		
 		agenda.listar();
 		
+		contato2.setEmail("bb@bb.com");
 		
-
+		System.out.println("\nLista após set de e-mail no objeto da classe Contato");
+		
+		agenda.listar();
+		
 	}
 
 }
