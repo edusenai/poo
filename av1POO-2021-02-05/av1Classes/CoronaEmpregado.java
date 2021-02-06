@@ -16,17 +16,13 @@ public class CoronaEmpregado extends CoronaPessoa {
 	public ArrayList<CoronaEmpregado> getEmpregados() {
 		return empregados;
 	}
-
-	public void setEmpregados(ArrayList<CoronaEmpregado> empregados) {
-		this.empregados = empregados;
-	}
-
-	public boolean isAposentado() {
+	
+	public boolean getIsAposentado() {
 		return isAposentado;
 	}
-
-	public void setAposentado(boolean isAposentado) {
-		this.isAposentado = isAposentado;
+	
+	public void addEmpregado(CoronaEmpregado empregado) {
+		empregados.add(empregado);
 	}
 
 	@Override

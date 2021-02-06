@@ -14,9 +14,9 @@ public class CoronaMain {
 		
 		while (opcao == 1) {
 			
-			boolean isAposentado;
-			int numFunc;
-			int mesDesempregado;
+			boolean isAposentado = false;
+			int numFunc = 0;
+			int mesDesempregado = 0;
 			
 			System.out.println("Nome Completo: ");
 			String nomeCompleto = keyboard.nextLine();
@@ -38,7 +38,11 @@ public class CoronaMain {
 				
 				tecladoAposentado = tecladoAposentado.toLowerCase();
 				
-				if (tecladoAposentado == "sim") {isAposentado = true;} else {isAposentado = false;};
+				switch (tecladoAposentado) {
+				case ("sim"):
+					isAposentado = true;
+					break;
+				}
 				
 			} else if (categoriaFormatada == CoronaCategoria.EMPREGADOR) {
 				//EMPREGADOR
@@ -55,15 +59,19 @@ public class CoronaMain {
 			String estado = keyboard.nextLine();
 			
 			if (categoriaFormatada == CoronaCategoria.EMPREGADO) {
-				
 				CoronaEmpregado pessoa = new CoronaEmpregado(nomeCompleto, dataNascimento, estado, categoriaFormatada, isAposentado);
-				System.out.println(pessoa.isAposentado());
+			}
+			
+			if (categoriaFormatada == CoronaCategoria.EMPREGADOR) {
+				CoronaEmpregador pessoa = new CoronaEmpregador(nomeCompleto, dataNascimento, estado, categoriaFormatada, numFunc);
+			}
+			
+			if (categoriaFormatada == CoronaCategoria.DESEMPREGADO) {
+				CoronaDesempregado pessoa = new CoronaDesempregado(nomeCompleto, dataNascimento, estado, categoriaFormatada, mesDesempregado);
 			}
 			
 			System.out.println("Deseja criar outro beneficiário? 1 - SIM / 2 - NÃO");
 			opcao = keyboard.nextInt();
-			
-			//CoronaPessoa pessoa(contador) = new CoronaPessoa(nomeCompleto, dataNascimento, estado, categoria);
 
 		}
 
