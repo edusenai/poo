@@ -40,7 +40,7 @@ public class CoronaPessoa {
 	public void setEstadoUF(String estadoUF) {
 		this.estadoUF = estadoUF;
 	}
-
+	/*
 	public CoronaCategoria getCategoria() {
 		return categoria;
 	}
@@ -72,7 +72,8 @@ public class CoronaPessoa {
 	public int getMesDesempregado() {
 		return mesDesempregado;
 	}
-	
+	*/
+	/*
 	public void defineTipoCategoria() {
 		
 		Scanner keyboard = new Scanner(System.in);
@@ -99,7 +100,7 @@ public class CoronaPessoa {
 			int mesDesempregado = keyboard.nextInt();
 			setMesDesempregado(mesDesempregado);
 		}
-	}
+	} */
 	
 }
 
