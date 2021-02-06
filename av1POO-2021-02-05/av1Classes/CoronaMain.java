@@ -7,24 +7,23 @@ public class CoronaMain {
 	public static void main(String[] args) {
 		
 		Scanner keyboard = new Scanner(System.in);
-		
-		int contador = 1;
 		int opcao = 1;
-		
-		
+			
 		while (opcao == 1) {
 			
 			boolean isAposentado = false;
 			int numFunc = 0;
 			int mesDesempregado = 0;
 			
-			System.out.println("Nome Completo: ");
+			System.out.println("Cadastrar novo beneficiário");
+			
+			System.out.print("Nome Completo: ");
 			String nomeCompleto = keyboard.nextLine();
 			
-			System.out.println("Data nascimento (DD-MM-AAAA): ");
+			System.out.print("Data nascimento (DD-MM-AAAA): ");
 			String dataNascimento = keyboard.nextLine();
 			
-			System.out.println("Categoria (EMPREGADO, EMPREGADOR, DESEMPREGADO): ");
+			System.out.print("Categoria (EMPREGADO, EMPREGADOR, DESEMPREGADO): ");
 			String categoria = keyboard.nextLine();
 			
 			categoria = categoria.toUpperCase();
@@ -33,7 +32,7 @@ public class CoronaMain {
 						
 			if (categoriaFormatada == CoronaCategoria.EMPREGADO) {
 				//EMPREGADO
-				System.out.println("É aposentado? (SIM ou NÃO)");
+				System.out.print("É aposentado? (SIM ou NÃO): ");
 				String tecladoAposentado = keyboard.nextLine();
 				
 				tecladoAposentado = tecladoAposentado.toLowerCase();
@@ -46,16 +45,16 @@ public class CoronaMain {
 				
 			} else if (categoriaFormatada == CoronaCategoria.EMPREGADOR) {
 				//EMPREGADOR
-				System.out.println("Número de funcionários: ");
+				System.out.print("Número de funcionários: ");
 				numFunc = keyboard.nextInt();
 	
 			} else {
 				//DESEMPREGADO
-				System.out.println("Meses desempregado: ");
+				System.out.print("Meses desempregado: ");
 				mesDesempregado = keyboard.nextInt();
 			}
 						
-			System.out.println("UF: ");
+			System.out.print("UF: ");
 			String estado = keyboard.nextLine();
 			
 			if (categoriaFormatada == CoronaCategoria.EMPREGADO) {
@@ -70,9 +69,11 @@ public class CoronaMain {
 				CoronaDesempregado pessoa = new CoronaDesempregado(nomeCompleto, dataNascimento, estado, categoriaFormatada, mesDesempregado);
 			}
 			
-			System.out.println("Deseja criar outro beneficiário? 1 - SIM / 2 - NÃO");
+			System.out.print("Deseja criar outro beneficiário? 1 - SIM / 2 - NÃO: ");
 			opcao = keyboard.nextInt();
-
+			
+			keyboard.nextLine();
+		
 		}
 
 		/*
@@ -98,4 +99,5 @@ public class CoronaMain {
 		System.out.println(pessoa3.getMesDesempregado());
 		*/
 	}
+	
 }
