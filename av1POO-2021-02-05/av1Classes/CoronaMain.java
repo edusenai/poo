@@ -6,8 +6,11 @@ public class CoronaMain {
 
 	public static void main(String[] args) {
 		
+		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
 		int opcao = 1;
+		
+		CoronaBeneficiarios beneficio = new CoronaBeneficiarios("Corona Voucher");
 			
 		while (opcao == 1) {
 			
@@ -58,15 +61,27 @@ public class CoronaMain {
 			String estado = keyboard.nextLine();
 			
 			if (categoriaFormatada == CoronaCategoria.EMPREGADO) {
-				CoronaEmpregado pessoa = new CoronaEmpregado(nomeCompleto, dataNascimento, estado, categoriaFormatada, isAposentado);
+				CoronaEmpregado empregado = new CoronaEmpregado(nomeCompleto, dataNascimento, estado, categoriaFormatada, isAposentado, 0.0, 0);
+				empregado.setValorBeneficio();
+				empregado.setMesBeneficio();
+				beneficio.addEmpregado(empregado);
+				beneficio.listEmpregados();
 			}
 			
 			if (categoriaFormatada == CoronaCategoria.EMPREGADOR) {
-				CoronaEmpregador pessoa = new CoronaEmpregador(nomeCompleto, dataNascimento, estado, categoriaFormatada, numFunc);
+				CoronaEmpregador empregador = new CoronaEmpregador(nomeCompleto, dataNascimento, estado, categoriaFormatada, numFunc, 0.0, 0);
+				empregador.setValorBeneficio();
+				empregador.setMesBeneficio();
+				beneficio.addEmpregador(empregador);
+				beneficio.listEmpregador();
 			}
 			
 			if (categoriaFormatada == CoronaCategoria.DESEMPREGADO) {
-				CoronaDesempregado pessoa = new CoronaDesempregado(nomeCompleto, dataNascimento, estado, categoriaFormatada, mesDesempregado);
+				CoronaDesempregado desempregado = new CoronaDesempregado(nomeCompleto, dataNascimento, estado, categoriaFormatada, mesDesempregado, 0.0, 0);
+				desempregado.setValorBeneficio();
+				desempregado.setMesBeneficio();
+				beneficio.addDesempregado(desempregado);
+				beneficio.listDesempregados();
 			}
 			
 			System.out.print("Deseja criar outro beneficiário? 1 - SIM / 2 - NÃO: ");
@@ -76,28 +91,6 @@ public class CoronaMain {
 		
 		}
 
-		/*
-		System.out.println("Total de usuários lidos: " );
-		System.out.println("Total de beneficiários: ");
-		System.out.println("Total de valor concedido: ");
-		System.out.println("2 maiores beneficiários: ");
-		System.out.println("2 beneficiários por mais tempo: ");
-		*/
-
-		
-		/*
-		CoronaPessoa pessoa1 = new CoronaPessoa("João da Silva", "01-01-1990", "SC", CoronaCategoria.EMPREGADO);
-		CoronaPessoa pessoa2 = new CoronaPessoa("João da Silva", "01-01-1990", "SC", CoronaCategoria.EMPREGADOR);
-		CoronaPessoa pessoa3 = new CoronaPessoa("João da Silva", "01-01-1990", "SC", CoronaCategoria.DESEMPREGADO);
-		
-		pessoa1.defineTipoCategoria();
-		pessoa2.defineTipoCategoria();
-		pessoa3.defineTipoCategoria();
-		
-		System.out.println(pessoa1.getCategoriaAposentado());
-		System.out.println(pessoa2.getNumFunc());
-		System.out.println(pessoa3.getMesDesempregado());
-		*/
 	}
 	
 }

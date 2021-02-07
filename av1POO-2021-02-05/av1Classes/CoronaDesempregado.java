@@ -1,33 +1,33 @@
 package av1;
 
-import java.util.ArrayList;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class CoronaDesempregado extends CoronaPessoa {
 
 	private int mesDesempregado;
-	private ArrayList<CoronaDesempregado> desempregados;
 	
-	public CoronaDesempregado(String nomeCompleto, String dataNascimento, String estadoUF, CoronaCategoria categoria, int mesDesempregado) {
-		super(nomeCompleto, dataNascimento, estadoUF, categoria);
+	public CoronaDesempregado(String nomeCompleto, String dataNascimento, String estadoUF, CoronaCategoria categoria, int mesDesempregado, double valorBeneficio, int mesBeneficio) {
+		super(nomeCompleto, dataNascimento, estadoUF, categoria, valorBeneficio, mesBeneficio);
 		this.mesDesempregado = mesDesempregado;
-		this.desempregados = new ArrayList<>();
 	}
 
 	public int getMesDesempregado() {
 		return mesDesempregado;
 	}
-
-	public ArrayList<CoronaDesempregado> getDesempregados() {
-		return desempregados;
+	
+	public void setValorBeneficio() {
+		this.valorBeneficio = ThreadLocalRandom.current().nextInt(1500, 2300 + 1);
 	}
 	
-	public void addDesempregado(CoronaDesempregado desempregado) {
-		desempregados.add(desempregado);
+	public void setMesBeneficio() {
+		Random rand = new Random();
+		this.mesBeneficio = rand.nextInt(12) + 1;
 	}
 
 	@Override
 	public String toString() {
-		return "CoronaDesempregado [mesDesempregado=" + mesDesempregado + ", desempregados=" + desempregados + "]";
-	}	
+		return getNomeCompleto() + " " + getDataNascimento() + " " + getEstadoUF() + " " + getCategoria() + " " + getMesDesempregado() + " " + getValorBeneficio() + " " + getMesBeneficio();
+	}
 	
 }
