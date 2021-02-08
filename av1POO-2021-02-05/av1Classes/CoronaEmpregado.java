@@ -24,7 +24,23 @@ public class CoronaEmpregado extends CoronaPessoa {
 		Random rand = new Random();
 		this.mesBeneficio = rand.nextInt(12) + 1;
 	}
-
+	
+	// letra U
+	
+	public void getBeneficioEmpregado() {
+		double beneficioEmpregado = valorBeneficio;
+		if (valorBeneficio > 1000) {
+			beneficioEmpregado = valorBeneficio * mesBeneficio;
+		}
+	}
+	
+	// letra E
+	public void getBeneficioAposentado() {
+		double beneficioAposentado = 0;
+		if (isAposentado) {
+			beneficioAposentado = valorBeneficio * mesBeneficio;
+		}
+	}
 	@Override
 	public String toString() {
 		return getNomeCompleto() + " " + getDataNascimento() + " " + getEstadoUF() + " " + getCategoria() + " " + getIsAposentado() + " " + getValorBeneficio() + " " + getMesBeneficio();

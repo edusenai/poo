@@ -65,7 +65,7 @@ public class CoronaMain {
 				empregado.setValorBeneficio();
 				empregado.setMesBeneficio();
 				beneficio.addEmpregado(empregado);
-				beneficio.listEmpregados();
+				//beneficio.listEmpregados();
 			}
 			
 			if (categoriaFormatada == CoronaCategoria.EMPREGADOR) {
@@ -73,7 +73,7 @@ public class CoronaMain {
 				empregador.setValorBeneficio();
 				empregador.setMesBeneficio();
 				beneficio.addEmpregador(empregador);
-				beneficio.listEmpregador();
+				//beneficio.listEmpregador();
 			}
 			
 			if (categoriaFormatada == CoronaCategoria.DESEMPREGADO) {
@@ -81,7 +81,7 @@ public class CoronaMain {
 				desempregado.setValorBeneficio();
 				desempregado.setMesBeneficio();
 				beneficio.addDesempregado(desempregado);
-				beneficio.listDesempregados();
+				//beneficio.listDesempregados();
 			}
 			
 			System.out.print("Deseja criar outro beneficiário? 1 - SIM / 2 - NÃO: ");
