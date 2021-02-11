@@ -2,6 +2,8 @@ package av2v2;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
@@ -96,8 +98,12 @@ public class BeneficiarioMain {
 		
 		}
 
+		//Impressão
+		
 		//Total de usuários
-		//Total de beneficiários
+		getTotalUsuarios();
+		
+		
 		//Total valor
 		//Nome 2 + valor
 		//Nome 2 + tempo
@@ -162,6 +168,27 @@ public class BeneficiarioMain {
 		stmt.setInt(7, mesBeneficio);
 		
 		stmt.execute();
+		
+		conexao.close();
+	}
+	
+	public static void getTotalUsuarios() throws SQLException {
+		Connection conexao = Conexao.getConnection();
+		
+		//String sql = "SELECT COUNT(codigo) FROM pessoas";
+
+		ResultSet rs = conexao.prepareStatement("SELECT * FROM pessoas").executeQuery();
+
+        ResultSetMetaData metaData = rs.getMetaData();
+        int numeroDeColunas = metaData.getColumnCount();
+		
+		
+		//Statement stmt = conexao.createStatement();
+		//ResultSet saida = stmt.executeQuery(sql);
+		
+		//int resultado = saida;
+		
+		System.out.println("O total de usuários é: " + numeroDeColunas);
 		
 		conexao.close();
 	}
