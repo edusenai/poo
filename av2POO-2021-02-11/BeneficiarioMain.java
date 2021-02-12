@@ -10,6 +10,8 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
+import jdbc.Pessoa;
+
 public class BeneficiarioMain {
 
 	public static void main(String[] args) throws SQLException {
@@ -102,11 +104,15 @@ public class BeneficiarioMain {
 		
 		//Total de usuários
 		getTotalUsuarios();
-		
-		
+				
 		//Total valor
+		getTotalValor();
+		
 		//Nome 2 + valor
+		
 		//Nome 2 + tempo
+		getMaiorTempo();
+		
 		//Delete
 		
 	}
@@ -175,20 +181,53 @@ public class BeneficiarioMain {
 	public static void getTotalUsuarios() throws SQLException {
 		Connection conexao = Conexao.getConnection();
 		
-		//String sql = "SELECT COUNT(codigo) FROM pessoas";
-
-		ResultSet rs = conexao.prepareStatement("SELECT * FROM pessoas").executeQuery();
-
-        ResultSetMetaData metaData = rs.getMetaData();
-        int numeroDeColunas = metaData.getColumnCount();
+		String sql = "SELECT codigo FROM pessoas";		
 		
+		Statement stmt = conexao.createStatement();
+		ResultSet saida = stmt.executeQuery(sql);
 		
-		//Statement stmt = conexao.createStatement();
-		//ResultSet saida = stmt.executeQuery(sql);
+		int count = 0;
 		
-		//int resultado = saida;
+		while (saida.next()) {
+			count++;
+		}
 		
-		System.out.println("O total de usuários é: " + numeroDeColunas);
+		System.out.println("O total de usuários é: " + count);
+		
+		conexao.close();
+	}
+	
+	public static void getTotalValor() throws SQLException {
+		Connection conexao = Conexao.getConnection();
+		
+		String sql = "SELECT SUM(valorRecebido) FROM pessoas";		
+		
+		Statement stmt = conexao.createStatement();
+		ResultSet saida = stmt.executeQuery(sql);
+		
+		while (saida.next()) {
+			double data = saida.getDouble(1);
+			System.out.println("O valor total do benefício é: R$" + data);
+		}
+		
+		conexao.close();
+	}
+	
+	public static void getMaiorTempo() throws SQLException {
+		Connection conexao = Conexao.getConnection();
+		
+		String sql = "select nomeCompleto from pessoas order by mesBeneficio DESC LIMIT 2";		
+		
+		Statement stmt = conexao.createStatement();
+		ResultSet saida = stmt.executeQuery(sql);
+		
+		int contador = 1;
+		
+		while (saida.next()) {
+			String data = saida.getString(1);
+			System.out.println("A " + contador + "ª pessoa com maior tempo de benefício: " + data);
+			contador++;
+		}
 		
 		conexao.close();
 	}
